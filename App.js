@@ -4,6 +4,8 @@ import {StackNavigator, TabNavigator} from 'react-navigation'
 import {Foundation} from '@expo/vector-icons';
 import DeckList from './components/deckList'
 import AddDeck from './components/add'
+import DeckView from './components/deckView'
+import AddQuestionView from './components/addQuestionView'
 import store from './store'
 import {Provider} from 'react-redux'
 
@@ -23,6 +25,12 @@ const Tabs = TabNavigator({
 const Main = StackNavigator({
   Home: {
     screen: Tabs
+  },
+  DeckView: {
+    screen: DeckView
+  },
+  AddQuestion: {
+    screen: AddQuestionView
   }
 })
 export default class App extends React.Component {

@@ -21,8 +21,16 @@ class DeckList extends React.Component {
     if (!decks)
       return <Text>No Deck Added</Text>
 
+    console.log(this.props)
+
     let list = Object.keys(decks)
-    return list.length > 0 ? list.map(l => <Deck key={decks[l].title} data={decks[l]}/>) : <Text>No Deck Added</Text>
+    return list.length > 0 ? list.map(l =>
+      <Deck
+        key={decks[l].title}
+        data={decks[l]}
+        navigation={this.props.navigation}
+      />
+    ) : <Text>No Deck Added</Text>
   }
 
   render() {

@@ -52,4 +52,8 @@ export const saveDeckTitle = async (title) => {
   //return decks[id]
 }
 
+export const saveDecks = async (obj) => {
+  await AsyncStorage.setItem('decks', JSON.stringify(obj))
+}
+
 
