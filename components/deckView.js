@@ -17,7 +17,7 @@ export default class DeckView extends Component {
         </View>
         <View style={styles.DeckBtns}>
           {questions.length !== 0 &&
-          <TouchableOpacity style={styles.mainBtn} onPress={() => navigation.navigate('QuizView', { questions, totalNumber: questions.length, score: 0 })}>
+          <TouchableOpacity style={styles.mainBtn} onPress={() => navigation.navigate('Quiz', {title, questions, totalNumber: questions.length})}>
             <Text style={{color: '#f7f7f7'}}>Start Quiz</Text>
           </TouchableOpacity>
           }

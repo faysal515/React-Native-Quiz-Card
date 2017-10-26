@@ -5,6 +5,7 @@ import {Foundation} from '@expo/vector-icons';
 import DeckList from './components/deckList'
 import AddDeck from './components/add'
 import DeckView from './components/deckView'
+import Quiz from './components/quiz'
 import AddQuestionView from './components/addQuestionView'
 import store from './store'
 import {Provider} from 'react-redux'
@@ -12,10 +13,7 @@ import {Provider} from 'react-redux'
 
 const Tabs = TabNavigator({
   List: {
-    screen: DeckList,
-    navigationOptions: {
-      tabBarIcon: ({tintColor}) => <Foundation name="folder" size={25} color={tintColor}/>
-    },
+    screen: DeckList
   },
   Add: {
     screen: AddDeck
@@ -27,10 +25,22 @@ const Main = StackNavigator({
     screen: Tabs
   },
   DeckView: {
-    screen: DeckView
+    screen: DeckView,
+    navigationOptions: ({navigation}) => ({
+      title: `${navigation.state.params.title}`,
+    }),
   },
   AddQuestion: {
-    screen: AddQuestionView
+    screen: AddQuestionView,
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: ({navigation}) => ({
+      title: `quiz on ${navigation.state.params.title}`,
+    }),
+    header: ({ goBack }) => ({
+      right: <Foundation name="folder" size={25} color={tintColor}/>
+    })
   }
 })
 export default class App extends React.Component {

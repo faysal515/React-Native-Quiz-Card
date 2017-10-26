@@ -12,6 +12,8 @@ class AddDeck extends React.Component {
   }
 
   async submitHandler() {
+    if(this.state.text.length === 0)
+      return
     await saveDeckTitle(this.state.text)
     this.props.addDeck({
       title: this.state.text,
@@ -23,12 +25,13 @@ class AddDeck extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <View>
-          <Text>What is the title of your new deck?</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>What is the title of your new deck?</Text>
         </View>
-        <View >
+        <View style={styles.form}>
           <TextInput
-            onChangeText={text => this.setState({text})}
+            style={styles.textInput}
+            onChangeText={(text) => this.setState({text})}
             value={this.state.text}
           />
           <TouchableOpacity style={[styles.mainBtn, { marginTop: 20 }]} onPress={() => this.submitHandler()}>
@@ -36,7 +39,7 @@ class AddDeck extends React.Component {
           </TouchableOpacity>
         </View>
       </View>
-    )
+    );
   }
 }
 
