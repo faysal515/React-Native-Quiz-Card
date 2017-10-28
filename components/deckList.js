@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
 import {connect} from 'react-redux'
-import {getDecks} from "../helpers";
+import {getDecks} from "../utils/helpers";
 import Deck from './deck'
 
 class DeckList extends React.Component {

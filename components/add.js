@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TextInput, View, TouchableOpacity, Image} from 'react-native';
 import {connect} from 'react-redux'
-import {saveDeckTitle} from '../helpers'
+import {saveDeckTitle} from '../utils/helpers'
 
 class AddDeck extends React.Component {
   constructor(props) {

@@ -7,6 +7,7 @@ import AddDeck from './components/add'
 import DeckView from './components/deckView'
 import Quiz from './components/quiz'
 import AddQuestionView from './components/addQuestionView'
+import {setLocalNotification} from './utils/notifications'
 import store from './store'
 import {Provider} from 'react-redux'
 
@@ -44,6 +45,9 @@ const Main = StackNavigator({
   }
 })
 export default class App extends React.Component {
+  async componentDidMount() {
+     await setLocalNotification()
+  }
   render() {
     console.log('store ', store.getState())
     return (
