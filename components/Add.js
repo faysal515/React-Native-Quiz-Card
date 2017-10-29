@@ -14,13 +14,14 @@ class AddDeck extends React.Component {
   async submitHandler() {
     if(this.state.text.length === 0)
       return
-    await saveDeckTitle(this.state.text)
-    this.props.addDeck({
+    let newDeck = {
       title: this.state.text,
       questions: []
-    })
+    }
+    await saveDeckTitle(this.state.text)
+    this.props.addDeck(newDeck)
     this.setState({text:''})
-    this.props.navigation.navigate('List');
+    this.props.navigation.navigate('DeckView', {...newDeck})
   }
   render() {
     return (

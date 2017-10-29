@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image, ScrollView} from 'react-native';
 import {connect} from 'react-redux'
 import {getDecks} from "../utils/helpers";
-import Deck from './deck'
+import Deck from './Deck'
 
 class DeckList extends React.Component {
   // constructor(props) {
@@ -20,9 +20,7 @@ class DeckList extends React.Component {
     let {decks} = this.props
     if (!decks)
       return <Text>No Deck Added</Text>
-
-    console.log(this.props)
-
+    
     let list = Object.keys(decks)
     return list.length > 0 ? list.map(l =>
       <Deck

@@ -3,13 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default class Deck extends Component {
   render() {
-    const { title, imageSource, questions } = this.props.data;
+    const { title, questions } = this.props.data;
     const {navigation} = this.props
     return (
       <View>
         <TouchableOpacity
           style={styles.cardContainer}
-          onPress={() => navigation.navigate('DeckView', { title, imageSource, questions })}
+          onPress={() => navigation.navigate('DeckView', { title, questions })}
         >
         <Text style={{fontSize: 22, color: '#f7f7f7', fontWeight: '700'}}>{title}</Text>
         <Text style={{fontSize: 14, color: '#f7f7f7'}}>{`${questions.length} cards`}</Text>
